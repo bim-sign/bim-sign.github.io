@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   background: #f5f7fa;
   color: #222;
 }
@@ -15,7 +15,7 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
   display: inline-block;
-  background: #222;
+  background: #063970;
   color: #fff;
   padding: 8px 24px;
   border-radius: 6px;
@@ -37,7 +37,7 @@ body {
 }
 .hero {
   position: relative;
-  background: #e8f5e9;
+  background: #abdbe3;
   min-height: 340px;
   display: flex;
   flex-direction: column;
@@ -54,6 +54,10 @@ body {
   gap: 0;
   opacity: 0.25;
   z-index: 1;
+  background-image: url('../img/bim-background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .grid-bg div {
   background: #b2dfdb;
@@ -99,7 +103,7 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .hero-buttons a:hover {
-  background: #388e3c;
+  background: #063970;
 }
 .about-section {
   max-width: 900px;
