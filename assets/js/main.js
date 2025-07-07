@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (fullBtn) {
     fullBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      window.open('https://drive.google.com/drive/folders/1b44aycPedjL5ZYj2fWt2c7ZNEUdVpQ5k?usp=drive_link', '_blank');
+      window.open('https://drive.google.com/drive/folders/1xRXKqcONB4fHpRZZRKYGf3K8-irMRvKQ?usp=sharing', '_blank');
     });
   }
 });
