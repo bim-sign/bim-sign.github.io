@@ -3,43 +3,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIM SIGN DATASET</title>
+  <title>BIM-SIGN — Malaysian Sign Language Dataset</title>
+  <meta name="description" content="BIM-SIGN is the first publicly available word-level Malaysian Sign Language (Bahasa Isyarat Malaysia) video dataset for sign language recognition and translation research.">
+  <meta name="keywords" content="Malaysian Sign Language, BIM, Bahasa Isyarat Malaysia, sign language dataset, sign language recognition, sign language translation">
+  <meta name="author" content="BIM-SIGN Research Team">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BIM-SIGN — Malaysian Sign Language Dataset">
+  <meta property="og:description" content="First publicly available word-level Malaysian Sign Language video dataset.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/bim_logo.png" type="image/png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="header">
-    <div class="logo">MALAYSIAN SIGN LANGUAGE (MSL) DATASET</div>
-    <div class="nav">
-      <!-- <a href="#">HOME</a> -->
-      <!-- <a href="#download">DOWNLOAD</a> -->
-      <!-- <a href="#code">CODE</a> -->
-      <!-- <a href="#publication">PUBLICATION</a> -->
+  <!-- ===========================
+       Navigation
+       =========================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/bim_logo.png" alt="BIM Logo">
+        <span>BIM-SIGN</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#stats">Dataset</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="contribute.html">Contribute</a></li>
+        <li><a href="evaluate.html" class="nav-cta">🧪 Evaluate</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </div>
-  <div class="hero">
-    <div class="grid-bg">
+  </nav>
+
+  <!-- ===========================
+       Hero Section
+       =========================== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <canvas id="particles-canvas"></canvas>
+      <div class="hero-gradient hero-gradient-1"></div>
+      <div class="hero-gradient hero-gradient-2"></div>
+      <div class="hero-gradient hero-gradient-3"></div>
     </div>
     <div class="hero-content">
-      <div class="hero-title">BIM-SIGN DATASET</div>
-      <div class="hero-desc">FIRST MALAYSIAN SIGN LANGUAGE DATASET</div>
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Open Source Dataset
+      </div>
+      <h1 class="hero-title">
+        <span class="highlight">BIM-SIGN</span><br>
+        Malaysian Sign Language Dataset
+      </h1>
+      <p class="hero-subtitle">
+        The first publicly available word-level 
+        <strong>Bahasa Isyarat Malaysia (BIM)</strong> video dataset — 
+        advancing sign language recognition &amp; translation research.
+      </p>
       <div class="hero-buttons">
-        <a href="#" id="download-full">DOWNLOAD BIM DATASET</a>
+        <a href="#download" class="btn btn-primary" id="hero-download-btn">
+          <span class="btn-icon">📥</span> Download Dataset
+        </a>
+        <a href="#about" class="btn btn-secondary">
+          <span class="btn-icon">📖</span> Learn More
+        </a>
       </div>
     </div>
-  </div>
-  <div class="about-section" id="about">
-    <div class="about-text">
-      <div class="about-title">ABOUT BIM-SIGN</div>
-      <div class="about-desc">
-        BIM is 'Bahasa Isyarat Malaysia' in Malay which means Malaysian Sign Language (MSL).
-        We introduce BIM-SIGN, which is the first publicly available dataset for World-Level Malaysian Sign Language Video <br><br>
+  </section>
+
+  <!-- ===========================
+       About Section
+       =========================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image fade-in-left">
+          <img src="assets/img/bim_logo.png" alt="BIM Sign Language Logo" style="max-width: 320px; margin: 0 auto; display: block;">
+        </div>
+        <div class="about-text fade-in-right">
+          <div class="section-label">About the Project</div>
+          <h3>What is <span class="gradient-text">BIM-SIGN</span>?</h3>
+          <p>
+            <strong>BIM</strong> stands for <em>Bahasa Isyarat Malaysia</em> — the official Malaysian Sign Language used by the Deaf community in Malaysia. Despite being a rich and expressive language, BIM has long lacked the computational resources needed for modern AI research.
+          </p>
+          <p>
+            <strong>BIM-SIGN</strong> is the first publicly available word-level video dataset for Malaysian Sign Language, designed to support research in sign language recognition (SLR) and sign language translation (SLT).
+          </p>
+          <div class="about-features">
+            <div class="about-feature">
+              <span class="icon">🎥</span> RGB Video Data
+            </div>
+            <div class="about-feature">
+              <span class="icon">🏷️</span> Gloss Annotations
+            </div>
+            <div class="about-feature">
+              <span class="icon">🤖</span> AI-Ready Format
+            </div>
+            <div class="about-feature">
+              <span class="icon">🌍</span> Open Access
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="about-visual">
-      <img src="assets/img/bim_logo.png" alt="Dataset illustration">
-      <!-- <div class="caption">Example: RGB, depth, pose, and gloss annotation</div> -->
+  </section>
+
+  <!-- ===========================
+       Stats Section
+       =========================== -->
+  <section class="section" id="stats" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Dataset Overview</div>
+        <h2 class="section-title">BIM-SIGN in <span class="gradient-text">Numbers</span></h2>
+        <p class="section-desc">A comprehensive dataset built with care to support Malaysian Sign Language AI research.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card fade-in" style="transition-delay: 0.1s;">
+          <span class="stat-icon">🤟</span>
+          <div class="stat-number" data-target="449">0</div>
+          <div class="stat-label">Sign Glosses</div>
+        </div>
+        <div class="stat-card fade-in" style="transition-delay: 0.2s;">
+          <span class="stat-icon">🎬</span>
+          <div class="stat-number" data-target="2247">0</div>
+          <div class="stat-label">Video Clips</div>
+        </div>
+        <div class="stat-card fade-in" style="transition-delay: 0.3s;">
+          <span class="stat-icon">👥</span>
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-label">Signers</div>
+        </div>
+        <div class="stat-card fade-in" style="transition-delay: 0.4s;">
+          <span class="stat-icon">📊</span>
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label">% Open Access</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ===========================
+       Download Section
+       =========================== -->
+  <section class="section" id="download">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Get the Data</div>
+        <h2 class="section-title">Download <span class="gradient-text">BIM-SIGN</span></h2>
+        <p class="section-desc">Freely available for academic and research purposes.</p>
+      </div>
+      <div class="download-card scale-in">
+        <div class="download-icon">📦</div>
+        <h3>BIM-SIGN Dataset v1.0</h3>
+        <p>
+          Word-level Malaysian Sign Language video dataset with gloss annotations.
+          Suitable for sign language recognition, translation, and generation tasks.
+        </p>
+        <div class="download-meta">
+          <div class="download-meta-item">
+            <span class="icon">🎬</span> 2,247 video clips
+          </div>
+          <div class="download-meta-item">
+            <span class="icon">🏷️</span> 449 glosses
+          </div>
+          <div class="download-meta-item">
+            <span class="icon">📁</span> MP4 format
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary" id="download-full">
+          <span class="btn-icon">📥</span> Download from Google Drive
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       Explore Features Section
+       =========================== -->
+  <section class="section" id="explore" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Get Involved</div>
+        <h2 class="section-title">Explore <span class="gradient-text">BIM-SIGN</span></h2>
+        <p class="section-desc">More than a dataset — a community-driven effort to advance Malaysian Sign Language AI.</p>
+      </div>
+      <div class="features-grid">
+        <a href="contribute.html" class="feature-card fade-in" style="transition-delay: 0.1s; text-decoration: none; color: inherit;">
+          <span class="feature-icon">🎮</span>
+          <h3>Contribute Signs</h3>
+          <p>Help expand the BIM-SIGN dataset by recording yourself performing sign language glosses. Gamified, fun, and easy!</p>
+          <span class="feature-link">Start Contributing →</span>
+        </a>
+        <a href="evaluate.html" class="feature-card fade-in" style="transition-delay: 0.2s; text-decoration: none; color: inherit;">
+          <span class="feature-icon">🧪</span>
+          <h3>Evaluate Animations</h3>
+          <p>Are you a BIM expert? Help validate AI-generated sign language animations by providing professional evaluations.</p>
+          <span class="feature-link">Start Evaluating →</span>
+        </a>
+        <div class="feature-card fade-in" style="transition-delay: 0.3s;">
+          <span class="feature-icon">📑</span>
+          <h3>Publication</h3>
+          <p>Read our research paper detailing the methodology, dataset statistics, and benchmark results.</p>
+          <span class="feature-link" style="color: var(--text-muted);">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       Team Photo Section
+       =========================== -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Our Community</div>
+        <h2 class="section-title">The Team Behind <span class="gradient-text">BIM-SIGN</span></h2>
+        <p class="section-desc">A collaborative effort between researchers and the Malaysian Deaf community.</p>
+      </div>
+      <div class="team-photo-wrapper scale-in">
+        <img src="assets/img/bim-background.jpeg" alt="BIM-SIGN Research Team — Data collection session with Deaf community participants">
+        <div class="team-photo-overlay">
+          <p>🤟 Data collection session with Deaf community participants and research team members.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       Footer
+       =========================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>BIM-SIGN</h3>
+          <p>The first publicly available word-level Malaysian Sign Language dataset. Built to advance sign language AI research and bridge communication gaps.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Dataset</h4>
+          <a href="#about">About</a>
+          <a href="#stats">Statistics</a>
+          <a href="#download">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="contribute.html">Contribute</a>
+          <a href="evaluate.html">Evaluate</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://github.com/bim-sign" target="_blank" rel="noopener">GitHub</a>
+          <a href="#">Paper (Coming Soon)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BIM-SIGN Research Team. Released for academic and research use.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>

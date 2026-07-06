@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribute — BIM-SIGN Dataset</title>
+  <meta name="description" content="Help expand the BIM-SIGN Malaysian Sign Language dataset by recording sign language videos. Fun, gamified, and easy!">
+  <link rel="icon" href="assets/img/bim_logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/contribute.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/bim_logo.png" alt="BIM Logo">
+        <span>BIM-SIGN</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#download">Download</a></li>
+        <li><a href="contribute.html" class="active">Contribute</a></li>
+        <li><a href="evaluate.html" class="nav-cta">🧪 Evaluate</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="hero-badge" style="animation: none;">
+        <span class="pulse-dot"></span>
+        Community Driven
+      </div>
+      <h1 class="page-title">Contribute to <span class="gradient-text">BIM-SIGN</span></h1>
+      <p class="page-subtitle">Help expand the Malaysian Sign Language dataset by recording sign videos. It's fun, easy, and you'll earn XP!</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="section" style="padding-top: 20px;">
+    <div class="container">
+
+      <!-- Dashboard -->
+      <div class="dashboard fade-in">
+        <div class="dashboard-card">
+          <div class="card-icon">🎯</div>
+          <div class="card-value" id="dash-recorded">0</div>
+          <div class="card-label">Recorded</div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-icon">⭐</div>
+          <div class="card-value" id="dash-xp">0</div>
+          <div class="card-label">Total XP</div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-icon">🏆</div>
+          <div id="dash-level"></div>
+          <div class="card-label">Level</div>
+          <div class="xp-progress-wrapper">
+            <div class="xp-progress-bar">
+              <div class="xp-progress-fill" id="xp-fill" style="width: 0%"></div>
+            </div>
+            <div class="xp-progress-text" id="xp-text">0 / 100 XP</div>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-icon">📋</div>
+          <div class="card-value" id="dash-remaining">0</div>
+          <div class="card-label">Remaining</div>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="instructions-banner fade-in">
+        <h3>📖 How to Contribute</h3>
+        <div class="instruction-steps">
+          <div class="instruction-step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <strong>Choose a Gloss</strong>
+              Browse and select a sign language word from the grid below.
+            </div>
+          </div>
+          <div class="instruction-step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <strong>Read Instructions</strong>
+              Review the sign details and recording guidelines.
+            </div>
+          </div>
+          <div class="instruction-step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <strong>Record &amp; Download</strong>
+              Record yourself performing the sign. The video will be downloaded to your device.
+            </div>
+          </div>
+          <div class="instruction-step">
+            <div class="step-number">4</div>
+            <div class="step-text">
+              <strong>Upload via Form</strong>
+              Submit your recording through our Google Form to contribute to the dataset.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gloss Controls -->
+      <div class="gloss-controls fade-in">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="gloss-search" placeholder="Search glosses...">
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="pending">Pending</button>
+          <button class="filter-tab" data-filter="recorded">Recorded</button>
+        </div>
+        <div class="gloss-count-label" id="gloss-count">Showing 0 glosses</div>
+      </div>
+
+      <!-- Gloss Grid -->
+      <div class="gloss-grid" id="gloss-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Leaderboard -->
+      <div class="leaderboard-section fade-in">
+        <h3>🏅 Top Contributors</h3>
+        <ul class="leaderboard-list" id="leaderboard-list">
+          <li class="leaderboard-item">
+            <div class="leaderboard-rank gold">1</div>
+            <div class="leaderboard-avatar">AH</div>
+            <div class="leaderboard-info">
+              <div class="leaderboard-name">Ahmad H.</div>
+              <div class="leaderboard-recordings">42 recordings</div>
+            </div>
+            <div class="leaderboard-xp">2,100 XP</div>
+          </li>
+          <li class="leaderboard-item">
+            <div class="leaderboard-rank silver">2</div>
+            <div class="leaderboard-avatar">NI</div>
+            <div class="leaderboard-info">
+              <div class="leaderboard-name">Nurul I.</div>
+              <div class="leaderboard-recordings">38 recordings</div>
+            </div>
+            <div class="leaderboard-xp">1,900 XP</div>
+          </li>
+          <li class="leaderboard-item">
+            <div class="leaderboard-rank bronze">3</div>
+            <div class="leaderboard-avatar">SM</div>
+            <div class="leaderboard-info">
+              <div class="leaderboard-name">Siti M.</div>
+              <div class="leaderboard-recordings">31 recordings</div>
+            </div>
+            <div class="leaderboard-xp">1,550 XP</div>
+          </li>
+          <li class="leaderboard-item">
+            <div class="leaderboard-rank">4</div>
+            <div class="leaderboard-avatar">KW</div>
+            <div class="leaderboard-info">
+              <div class="leaderboard-name">Kevin W.</div>
+              <div class="leaderboard-recordings">25 recordings</div>
+            </div>
+            <div class="leaderboard-xp">1,250 XP</div>
+          </li>
+          <li class="leaderboard-item">
+            <div class="leaderboard-rank">5</div>
+            <div class="leaderboard-avatar">FA</div>
+            <div class="leaderboard-info">
+              <div class="leaderboard-name">Farah A.</div>
+              <div class="leaderboard-recordings">20 recordings</div>
+            </div>
+            <div class="leaderboard-xp">1,000 XP</div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Recording Studio Modal -->
+  <div class="studio-overlay" id="studio-overlay">
+    <div class="studio-container">
+      <!-- Header -->
+      <div class="studio-header">
+        <h3>🎥 Recording Studio — <span id="studio-gloss-title">Gloss</span></h3>
+        <button class="studio-close" id="studio-close">✕</button>
+      </div>
+
+      <!-- Wizard Steps -->
+      <div class="wizard-steps">
+        <div class="wizard-step active" data-step="1">
+          <div class="wizard-step-dot">1</div>
+          <span class="wizard-step-label">Prepare</span>
+        </div>
+        <div class="wizard-connector"></div>
+        <div class="wizard-step" data-step="2">
+          <div class="wizard-step-dot">2</div>
+          <span class="wizard-step-label">Record</span>
+        </div>
+        <div class="wizard-connector"></div>
+        <div class="wizard-step" data-step="3">
+          <div class="wizard-step-dot">3</div>
+          <span class="wizard-step-label">Review</span>
+        </div>
+        <div class="wizard-connector"></div>
+        <div class="wizard-step" data-step="4">
+          <div class="wizard-step-dot">4</div>
+          <span class="wizard-step-label">Submit</span>
+        </div>
+      </div>
+
+      <!-- Studio Body — Steps -->
+      <div class="studio-body" id="studio-body">
+        <!-- Step content dynamically rendered by JS -->
+      </div>
+
+      <!-- Studio Actions -->
+      <div class="studio-actions" id="studio-actions">
+        <!-- Buttons dynamically rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 BIM-SIGN Research Team. Help us build a better dataset for Malaysian Sign Language AI.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/contribute.js"></script>
+</body>
+</html>

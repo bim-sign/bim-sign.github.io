@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluate — BIM-SIGN Dataset</title>
+  <meta name="description" content="Professional evaluation interface for AI-generated Malaysian Sign Language animations. Help validate sign language translation quality.">
+  <link rel="icon" href="assets/img/bim_logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/evaluate.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/bim_logo.png" alt="BIM Logo">
+        <span>BIM-SIGN</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#download">Download</a></li>
+        <li><a href="contribute.html">Contribute</a></li>
+        <li><a href="evaluate.html" class="nav-cta active">🧪 Evaluate</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="hero-badge" style="animation: none;">
+        <span class="pulse-dot"></span>
+        Expert Evaluation
+      </div>
+      <h1 class="page-title">Evaluate <span class="gradient-text">Sign Animations</span></h1>
+      <p class="page-subtitle">Help validate AI-generated sign language animations by providing professional evaluations as a BIM expert.</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="section" style="padding-top: 20px;">
+    <div class="container">
+
+      <!-- Setup Form (shown first time) -->
+      <div id="setup-section" style="display: none;">
+        <div class="setup-form fade-in">
+          <h3>👋 Welcome, Evaluator</h3>
+          <p class="form-subtitle">Please provide your details to begin evaluating sign language animations.</p>
+          <form id="evaluator-form">
+            <div class="form-group">
+              <label for="eval-name">Full Name *</label>
+              <input type="text" id="eval-name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="eval-affiliation">Affiliation / Organization</label>
+              <input type="text" id="eval-affiliation" placeholder="e.g., Universiti Malaya, MFD">
+            </div>
+            <div class="form-group">
+              <label for="eval-expertise">Expertise Level *</label>
+              <select id="eval-expertise" required>
+                <option value="">Select your expertise</option>
+                <option value="native">Native BIM Signer (Deaf Community)</option>
+                <option value="interpreter">Certified BIM Interpreter</option>
+                <option value="educator">Sign Language Educator</option>
+                <option value="researcher">SL Researcher</option>
+                <option value="learner">BIM Learner (Intermediate+)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="eval-years">Years of Experience</label>
+              <select id="eval-years">
+                <option value="">Select experience</option>
+                <option value="1-3">1–3 years</option>
+                <option value="3-5">3–5 years</option>
+                <option value="5-10">5–10 years</option>
+                <option value="10+">10+ years</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;">
+              🚀 Start Evaluating
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Evaluation Dashboard (shown after setup) -->
+      <div id="eval-dashboard" style="display: none;">
+
+        <!-- Evaluator Bar -->
+        <div class="evaluator-bar fade-in" id="evaluator-bar">
+          <div class="evaluator-info">
+            <div class="evaluator-avatar" id="eval-avatar">?</div>
+            <div class="evaluator-details">
+              <h4 id="eval-display-name">Evaluator</h4>
+              <p id="eval-display-expertise">Expert</p>
+            </div>
+          </div>
+          <div class="evaluator-stats">
+            <div class="eval-stat">
+              <div class="stat-val" id="stat-evaluated">0</div>
+              <div class="stat-lbl">Evaluated</div>
+            </div>
+            <div class="eval-stat">
+              <div class="stat-val" id="stat-approved">0</div>
+              <div class="stat-lbl">Approved</div>
+            </div>
+            <div class="eval-stat">
+              <div class="stat-val" id="stat-rejected">0</div>
+              <div class="stat-lbl">Rejected</div>
+            </div>
+            <div class="eval-stat">
+              <div class="stat-val" id="stat-remaining">0</div>
+              <div class="stat-lbl">Remaining</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="eval-tabs fade-in">
+          <button class="eval-tab active" data-filter="pending">
+            Pending <span class="tab-count" id="tab-pending-count">0</span>
+          </button>
+          <button class="eval-tab" data-filter="approved">
+            Approved <span class="tab-count" id="tab-approved-count">0</span>
+          </button>
+          <button class="eval-tab" data-filter="needs-work">
+            Needs Work <span class="tab-count" id="tab-needs-count">0</span>
+          </button>
+          <button class="eval-tab" data-filter="rejected">
+            Rejected <span class="tab-count" id="tab-rejected-count">0</span>
+          </button>
+        </div>
+
+        <!-- Queue Grid -->
+        <div class="eval-queue fade-in" id="eval-queue">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Export -->
+        <div class="export-section fade-in">
+          <div class="export-info">
+            <h4>📊 Export Results</h4>
+            <p>Download your evaluation results for analysis and reporting.</p>
+          </div>
+          <div class="export-buttons">
+            <button class="btn btn-secondary" id="export-csv">📄 Export CSV</button>
+            <button class="btn btn-secondary" id="export-json">📋 Export JSON</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Evaluation Workspace Modal -->
+  <div class="eval-workspace-overlay" id="eval-workspace-overlay">
+    <div class="eval-workspace" id="eval-workspace">
+      <!-- Workspace Header -->
+      <div class="ws-header">
+        <h3>🧪 Evaluation — <span id="ws-gloss-title">Gloss</span></h3>
+        <button class="ws-close" id="ws-close">✕</button>
+      </div>
+
+      <!-- Video Comparison -->
+      <div class="video-comparison">
+        <div class="video-panel">
+          <div class="video-panel-header">
+            👤 Reference (Human Signer)
+          </div>
+          <div class="video-placeholder" id="ref-video-area">
+            <span class="placeholder-icon">👤</span>
+            <span>Reference video</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">(Sample placeholder)</span>
+          </div>
+        </div>
+        <div class="video-panel">
+          <div class="video-panel-header">
+            🤖 Generated (AI Animation)
+          </div>
+          <div class="video-placeholder" id="gen-video-area">
+            <span class="placeholder-icon">🤖</span>
+            <span>Generated animation</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">(Sample placeholder)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="playback-controls">
+        <button class="playback-btn" id="pb-play" title="Play / Pause">▶</button>
+        <button class="playback-btn" id="pb-restart" title="Restart">⟲</button>
+        <button class="playback-btn" id="pb-loop" title="Toggle Loop">🔁</button>
+        <span class="speed-label">Speed:</span>
+        <button class="playback-btn" id="pb-slow" title="0.5x Speed">½×</button>
+        <button class="playback-btn active" id="pb-normal" title="1x Speed">1×</button>
+        <button class="playback-btn" id="pb-fast" title="1.5x Speed">1½×</button>
+      </div>
+
+      <!-- Rating Form -->
+      <div class="rating-section">
+        <h4>📝 Evaluation Rubric</h4>
+        <div class="rating-grid">
+          <div class="rating-item">
+            <label>
+              Sign Accuracy
+              <span class="rating-value" id="val-accuracy">3</span>/5
+            </label>
+            <input type="range" class="rating-slider" id="rating-accuracy" min="1" max="5" value="3">
+            <div class="rating-scale">
+              <span>Very Inaccurate</span>
+              <span>Perfect</span>
+            </div>
+          </div>
+          <div class="rating-item">
+            <label>
+              Fluency / Naturalness
+              <span class="rating-value" id="val-fluency">3</span>/5
+            </label>
+            <input type="range" class="rating-slider" id="rating-fluency" min="1" max="5" value="3">
+            <div class="rating-scale">
+              <span>Very Unnatural</span>
+              <span>Very Natural</span>
+            </div>
+          </div>
+          <div class="rating-item">
+            <label>
+              Comprehensibility
+              <span class="rating-value" id="val-comprehension">3</span>/5
+            </label>
+            <input type="range" class="rating-slider" id="rating-comprehension" min="1" max="5" value="3">
+            <div class="rating-scale">
+              <span>Not Understandable</span>
+              <span>Perfectly Clear</span>
+            </div>
+          </div>
+          <div class="rating-item">
+            <label>
+              Overall Quality
+              <span class="rating-value" id="val-overall">3</span>/5
+            </label>
+            <input type="range" class="rating-slider" id="rating-overall" min="1" max="5" value="3">
+            <div class="rating-scale">
+              <span>Very Poor</span>
+              <span>Excellent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment -->
+        <div class="comment-group">
+          <label>💬 Additional Comments (optional)</label>
+          <textarea id="eval-comment" placeholder="Describe any specific issues, suggestions for improvement, or positive aspects of this animation..."></textarea>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="eval-actions">
+        <div class="eval-actions-left">
+          <button class="btn btn-ghost" id="ws-cancel">Cancel</button>
+        </div>
+        <div class="eval-actions-right">
+          <button class="btn btn-reject" id="ws-reject">✕ Reject</button>
+          <button class="btn btn-improve" id="ws-improve">⚠ Needs Work</button>
+          <button class="btn btn-approve" id="ws-approve">✓ Approve</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 BIM-SIGN Research Team. Your expert evaluation helps improve sign language AI.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/evaluate.js"></script>
+</body>
+</html>
