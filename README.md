@@ -17,27 +17,25 @@ This repository hosts a premium, interactive, dark-themed portal built as a stat
 
 ---
 
-## 🌟 Key Features of the Portal
+## 🤝 How to Contribute
 
-### 1. 🏠 Dataset Showcase & Landing Page
-* Premium, dark-themed responsive design featuring glassmorphism elements.
-* Live-rendering particle network background.
-* Animated statistics counters showcasing the dataset's scale.
-* Direct download access to the complete dataset stored on Google Drive.
+Help expand the Malaysian Sign Language dataset by recording sign videos. It's fun, easy, and you'll earn XP!
 
-### 3. 🎮 Gamified Community Contribution
-* Allows members of the Deaf and signing community to expand the dataset.
-* Interactive selection grid of 64 standard BIM glosses.
-* Built-in webcam recording studio using browser WebRTC and MediaRecorder APIs.
-* **Gamification elements:** XP points, leveling system (Newcomer to BIM Legend), progress tracking, and leaderboard.
-* **Secure workflow:** Automatically downloads the recorded file locally to the user's device and prompts them to upload it via our secure Google Form.
+1. **Choose a Gloss:** Browse and select a sign language word from the grid on the Contribute page.
+2. **Read Instructions:** Review the sign details and recording posture guidelines.
+3. **Record & Download:** Record yourself performing the sign. The website will automatically download the video to your local device.
+4. **Upload via Form:** Submit your downloaded recording through our Google Form to contribute to the dataset.
 
-### 4. 🧪 Expert Animation Evaluation
-* Tailored for professional sign language interpreters and educators to validate AI-generated sign language translation animations.
-* Side-by-side synchronized video playback comparison (Reference human signer vs. AI generated skeleton/animation).
-* Precise playback speed controls ($0.5\times$, $1\times$, $1.5\times$), looping, and frame-by-frame review.
-* Rating rubric assessing **Accuracy**, **Fluency**, **Comprehensibility**, and **Overall Quality** on a 1–5 scale.
-* Persistence of evaluations locally and ability to export data as clean **CSV** or **JSON** spreadsheets for research logging.
+---
+
+## 🧪 How to Evaluate
+
+Are you a BIM expert? Help validate AI-generated sign language animations by providing professional evaluations.
+
+1. **Setup Profile:** Provide your details (name, affiliation, expertise level) to start.
+2. **Select Video:** Choose an animation clip from the pending queue.
+3. **Compare & Rate:** Review the generated animation side-by-side with a human reference video. Rate the Accuracy, Fluency, Comprehensibility, and Overall Quality on a scale of 1–5.
+4. **Export Results:** Export the completed evaluations as CSV or JSON format for analysis.
 
 ---
 
@@ -65,51 +63,8 @@ bim-sign.github.io/
 
 ---
 
-## 🛠️ Local Development
+## 📑 Citation
 
-To run the website locally on your computer:
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/bim-sign/bim-sign.github.io.git
-   cd bim-sign.github.io
-   ```
-
-2. Start a local development server. For example, using Python:
-   ```bash
-   python3 -m http.server 8080
-   ```
-
-3. Open your browser and navigate to `http://localhost:8080`.
-
-*Note: Access to the webcam in the Contribution section requires a secure context (HTTPS) or running from `localhost`.*
-
----
-
-## 🚀 Deployment
-
-The site is hosted directly on GitHub Pages. Any changes pushed to the `main` branch will automatically deploy to the live site at **https://bim-sign.github.io** within a few minutes.
-
-```bash
-git add .
-git commit -m "update website features"
-git push origin main
-```
-
----
-
-## 🤝 Citation & Licensing
-
-If you use the BIM-SIGN dataset or this portal code in your research, please cite our paper:
-
-```bibtex
-% Citation template will be updated upon final paper publication.
-@article{BIMSign2026,
-  title={BIM-SIGN: A High-Diversity isolated word-level Malaysian Sign Language Dataset for Sign Language Production},
-  author={BIM-SIGN Research Team},
-  journal={arXiv preprint},
-  year={2026}
-}
-```
+The citation for this work is currently in progress.
 
 *The dataset and code are provided for academic and non-commercial research purposes.*
